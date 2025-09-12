@@ -5,8 +5,9 @@ import Typewriter from "@/components/Typewriter";
 
 const HERO_WORDS = [
     "I'm a fresh graduate Computer Engineering from Universitas Pendidikan Indonesia.",
-    "I build modern, user-friendly web apps.",
-    "Love crafting smooth micro-interactions.",
+    "I'm a fullstack developer.",
+    "I'm a AI enthusiast.",
+    "I'm a problem solver.",
 ];
 
 export default function Hero() {

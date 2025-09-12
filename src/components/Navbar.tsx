@@ -33,7 +33,9 @@ export default function Navbar() {
   return (
     <nav className={`w-full fixed top-0 left-0 z-50 transition-all ${scrolled ? "backdrop-blur-md/80 bg-white/5 border-b border-white/10" : "bg-transparent"}`}>
       <div className="max-w-4xl mx-auto flex justify-between items-center p-4">
-        <h1 className="text-lg font-bold tracking-tight bg-gradient-to-r from-indigo-300 via-cyan-200 to-indigo-400 bg-clip-text text-transparent">Randi</h1>
+        <h1>
+          <img src="/logoporto.png" alt="Logo" className="w-15 h-13" />
+        </h1>
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex gap-6">
