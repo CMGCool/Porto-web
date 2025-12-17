@@ -28,6 +28,7 @@ export default function Navbar() {
     { href: "#experience", label: "Experiences" },
     { href: "#certificates", label: "Certificates" },
     { href: "#contact", label: "Contact" },
+    { href: "https://drive.google.com/file/d/1WR4t4qiA_jpDP8Ro3_JTXEzUeLBGkbWl/view?usp=sharing", label: "View CV", external: true },
   ];
 
   return (
@@ -41,7 +42,11 @@ export default function Navbar() {
         <ul className="hidden md:flex gap-6">
           {navItems.map((item) => (
             <li key={item.href}>
-              <a href={item.href} className="relative text-sm text-indigo-100/90 hover:text-white transition">
+              <a 
+                href={item.href} 
+                className="relative text-sm text-indigo-100/90 hover:text-white transition"
+                {...(item.external && { target: "_blank", rel: "noopener noreferrer" })}
+              >
                 {item.label}
                 <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-gradient-to-r from-indigo-400 to-cyan-300 transition-all duration-300 group-hover:w-full peer-hover:w-full"></span>
               </a>
@@ -95,6 +100,7 @@ export default function Navbar() {
                 href={item.href}
                 onClick={closeMobileMenu}
                 className="block text-sm text-indigo-100/90 hover:text-white transition py-2 border-b border-white/10 last:border-b-0"
+                {...(item.external && { target: "_blank", rel: "noopener noreferrer" })}
               >
                 {item.label}
               </a>

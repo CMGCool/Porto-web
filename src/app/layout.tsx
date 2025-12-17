@@ -16,6 +16,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Randi — Web Developer Portfolio",
   description: "Modern portfolio with smooth micro-interactions, built using Next.js, Tailwind CSS, and Framer Motion.",
+  icons: {
+    icon: "/logoporto.png",
+    shortcut: "/logoporto.png",
+    apple: "/logoporto.png",
+  },
 };
 
 export default function RootLayout({
@@ -29,7 +34,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        {/* Scroll to top */}
         <ScrollToTop />
       </body>
     </html>

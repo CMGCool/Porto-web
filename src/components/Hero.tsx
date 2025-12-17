@@ -6,7 +6,7 @@ import Typewriter from "@/components/Typewriter";
 const HERO_WORDS = [
     "I'm a fresh graduate Computer Engineering from Universitas Pendidikan Indonesia.",
     "I'm a fullstack developer.",
-    "I'm a AI enthusiast.",
+    "I'm an AI enthusiast.",
     "I'm a problem solver.",
 ];
 
@@ -56,12 +56,18 @@ export default function Hero() {
             </motion.p>
 
             <motion.div
-                className="mt-8 flex items-center gap-3"
+                className="mt-8 flex flex-wrap items-center justify-center gap-3"
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.35, duration: 0.6 }}
             >
-                <a href="#projects" className="px-5 py-2.5 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-500 text-white shadow-lg shadow-indigo-500/20 hover:brightness-110 transition">
+                <a href="https://drive.google.com/file/d/1WR4t4qiA_jpDP8Ro3_JTXEzUeLBGkbWl/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-500 text-white shadow-lg shadow-indigo-500/20 hover:brightness-110 transition flex items-center gap-2">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    View CV
+                </a>
+                <a href="#projects" className="px-5 py-2.5 rounded-full border border-white/15 text-indigo-100/90 hover:bg-white/5 transition">
                     View Projects
                 </a>
                 <a href="#contact" className="px-5 py-2.5 rounded-full border border-white/15 text-indigo-100/90 hover:bg-white/5 transition">

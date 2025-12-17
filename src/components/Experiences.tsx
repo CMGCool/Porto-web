@@ -11,22 +11,26 @@ type Experience = {
 
 const experiences: Experience[] = [
   {
-    role: "Front-End Developer",
-    company: "Freelance",
-    period: "2024 — Present",
+    role: "IT Staff Internship - Kampus Merdeka Batch 7",
+    company: "PT Jasa dan Kepariwistaan Jawa Barat (Perseroda)",
+    period: "September 2024 — December 2024",
     points: [
-      "Membangun landing page cepat dan responsif dengan Next.js & Tailwind.",
-      "Meningkatkan Core Web Vitals (LCP, CLS) hingga 20-30%.",
-      "Integrasi animasi halus menggunakan Framer Motion.",
+      "Responsible for creating the D'Journey project extranet website, which will serve as a dashboard for partners collaborating with PT. Jaswita Jabar to market their tours through the D'Journey application.",
+      "Ensure the extranet website has the appropriate functions and features and functions properly.",
+      "Responsible for creating the incoming and outgoing mail features for the board of commissioners on the Memo and Digital Letter websites of PT. Jaswita Jabar.",
+      "Ensure the incoming and outgoing mail features on the Memo and Digital Letter websites have the appropriate functions and features and function properly.",
+      "Contribute to helpdesk (IT Support) management at PT. Jaswita Jabar and its subsidiaries."
     ],
   },
   {
-    role: "UI Developer Intern",
-    company: "Company Name",
-    period: "2023 — 2024",
+    role: "IT Staff Internship - Kampus Merdeka Batch 6",
+    company: "PT Jasa dan Kepariwistaan Jawa Barat (Perseroda)",
+    period: "January 2024 — June 2024",
     points: [
-      "Mengimplementasikan design system ke komponen reusable.",
-      "Membuat themeable components dan aksesibilitas dasar (ARIA).",
+      "Contributed to creating the invoicing feature for the PT Jaswita asset data website.",
+      "Responsible for ensuring the functionality of the invoicing feature runs as it should.",
+      "Responsible for creating letter drafting menus (generate PDF templates) for the PT Jaswita digital memo website and ensuring the functionality is correct as it should.",
+      "Contribute to completing helpdesk at PT Jaswita (IT Support)."
     ],
   },
 ];

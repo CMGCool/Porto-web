@@ -5,16 +5,15 @@ import { motion } from "framer-motion";
 type Cert = {
   title: string;
   issuer: string;
-  image: string; // lokasi gambar di /public
+  image: string; 
   url?: string;  // link credential (opsional)
   date?: string; // tahun/bulan (opsional)
 };
 
 const certificates: Cert[] = [
-  { title: "Front-End Developer", issuer: "Dicoding", image: "/window.svg", url: "https://example.com/credential/fe", date: "2024" },
-  { title: "Next.js Fundamentals", issuer: "Vercel", image: "/vercel.svg", url: "https://example.com/credential/next", date: "2025" },
-  { title: "React Essentials", issuer: "Meta", image: "/next.svg", url: "https://example.com/credential/react", date: "2024" },
-  { title: "Web Accessibility", issuer: "W3C", image: "/globe.svg", url: "https://example.com/credential/a11y", date: "2023" },
+  { title: "IC3 Digital Literation GS6", issuer: "Certiport", image: "/certiport.png", url: "https://www.credly.com/badges/7fdd8a58-9824-4f8f-8001-27b6e388a47f/public_url", date: "2023" },
+  { title: "Mikrotik Certified Network Associate (MTCNA)", issuer: "MikroTik", image: "/MikroTik-Logo.jpg", url: "https://drive.google.com/file/d/1UN1g3D1lAz2Ib00wltonBw41J4mHIOgN/view?usp=sharing", date: "2025" },
+  { title: "PTESOL (Proficiency Test of English to Speakers of Other Languages)", issuer: "Balai Bahasa Universitas Pendidikan Indonesia", image: "/Logo UPI.png", url: "https://balaibahasa.upi.edu/member/certificate_check/2521074", date: "2025" },
 ];
 
 export default function Certificate() {
@@ -84,7 +83,7 @@ export default function Certificate() {
                   href={c.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-4 inline-flex items-center gap-2 text-sm text-cyan-200 hover:text-white transition-all duration-200"
+                  className="mt-4 inline-flex items-center gap-2 text-sm text-cyan-200 hover:text-white transition-all duration-200 relative z-10 pointer-events-auto"
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 + i * 0.1, duration: 0.4 }}
