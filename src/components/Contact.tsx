@@ -89,7 +89,7 @@ export default function Contact() {
       
       setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -110,7 +110,7 @@ export default function Contact() {
             Get In Touch
           </h2>
           <p className="text-indigo-100/80 text-lg max-w-2xl mx-auto">
-            Interested in working together? I'm always open to discussing new opportunities,
+            Interested in working together? I&apos;m always open to discussing new opportunities,
             creative projects, or just having a chat about technology and development.
           </p>
         </motion.div>
@@ -176,7 +176,7 @@ export default function Contact() {
               Send Me a Quick Message
             </h3>
             <p className="text-indigo-100/80 mb-6 max-w-2xl mx-auto">
-              Fill out the form below and I'll get back to you as soon as possible!
+              Fill out the form below and I&apos;ll get back to you as soon as possible!
             </p>
 
             <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-6">

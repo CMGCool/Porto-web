@@ -1,8 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { g } from "framer-motion/client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const projects = [
   {
@@ -51,7 +50,6 @@ const projects = [
 
 export default function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [projectImageIndex, setProjectImageIndex] = useState<Record<number, number>>({});
 
   // Calculate total slides (2 cards per slide)
@@ -59,21 +57,14 @@ export default function Projects() {
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
-    setIsAutoPlaying(false);
-    // Resume auto-play after 10 seconds
-    setTimeout(() => setIsAutoPlaying(true), 10000);
   };
 
   const goToPrevious = () => {
     setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
-    setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 10000);
   };
 
   const goToNext = () => {
     setCurrentIndex((prev) => (prev + 1) % totalSlides);
-    setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 10000);
   };
 
   // Get projects for current slide

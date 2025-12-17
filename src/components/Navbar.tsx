@@ -35,6 +35,7 @@ export default function Navbar() {
     <nav className={`w-full fixed top-0 left-0 z-50 transition-all ${scrolled ? "backdrop-blur-md/80 bg-white/5 border-b border-white/10" : "bg-transparent"}`}>
       <div className="max-w-4xl mx-auto flex justify-between items-center p-4">
         <h1>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/logoporto.png" alt="Logo" className="w-15 h-13" />
         </h1>
 
