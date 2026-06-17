@@ -6,9 +6,9 @@ export const metadata: Metadata = {
   title: "Randi — Web Developer Portfolio",
   description: "Portfolio of Randi Andhika Djaja — fullstack developer & computer engineering graduate.",
   icons: {
-    icon: "/logoporto.png",
-    shortcut: "/logoporto.png",
-    apple: "/logoporto.png",
+    icon: "/web-icon3.png",
+    shortcut: "/web-icon3.png",
+    apple: "/web-icon3.png",
   },
 };
 

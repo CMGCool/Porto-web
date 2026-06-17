@@ -3,10 +3,10 @@
 import { useState } from "react";
 
 const navItems = [
-  { href: "#projects",     label: "Projects" },
-  { href: "#experience",   label: "Experiences" },
+  { href: "#projects", label: "Projects" },
+  { href: "#experience", label: "Experiences" },
   { href: "#certificates", label: "Certificates" },
-  { href: "#contact",      label: "Contact" },
+  { href: "#contact", label: "Contact" },
   { href: "https://drive.google.com/file/d/1WR4t4qiA_jpDP8Ro3_JTXEzUeLBGkbWl/view?usp=sharing", label: "View CV", external: true },
 ];
 
@@ -41,7 +41,7 @@ export default function Navbar() {
             letterSpacing: "0.5px",
           }}
         >
-          <span style={{ fontSize: 14 }}>💻</span>
+          <img src="/w98_computer.ico" alt="" style={{ width: 16, height: 16, imageRendering: "pixelated" }} />
           <span>Randi Andhika Djaja — Portfolio v1.0</span>
           <div style={{ marginLeft: "auto", display: "flex", gap: 2 }}>
             <button className="win-close-btn" aria-label="minimize">_</button>

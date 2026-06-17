@@ -67,8 +67,8 @@ export default function Hero() {
               </div>
 
               {[
-                ["Status",    "Open to Work"],
-                ["Location",  "Bandung, West Java, Indonesia"],
+                ["Status", "Open to Work"],
+                ["Location", "Bandung, West Java, Indonesia"],
                 ["Education", "S1 Computer Engineering — UPI"],
               ].map(([label, value]) => (
                 <div key={label} style={{ display: "flex", gap: 8, marginBottom: 3, fontSize: 12 }}>
@@ -88,7 +88,7 @@ export default function Hero() {
                   rel="noopener noreferrer"
                   className="win-btn win-btn--primary"
                 >
-                   View CV
+                  View CV
                 </a>
                 <a href="#projects" className="win-btn"> Projects</a>
                 <a href="#contact" className="win-btn"> Contact</a>
@@ -107,10 +107,10 @@ export default function Hero() {
         <WinWindow id="skills" title="Skills &amp; Technologies" icon="">
           <div className="win-body">
             {[
-              { category: "Frontend",      items: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Bootstrap", "Tailwind CSS"] },
-              { category: "Backend",       items: ["PHP", "CodeIgniter 3", "Python", "Flask", "Node.js"] },
-              { category: "Database",      items: ["MySQL", "PostgreSQL"] },
-              { category: "Tools & Others",items: ["Git", "Arduino", "Selenium", "Hugging Face", "Linux"] },
+              { category: "Frontend", items: ["HTML", "CSS", "JavaScript", "Next.js", "Bootstrap", "Tailwind CSS"] },
+              { category: "Backend", items: ["CodeIgniter", "Laravel", "Flask", "Node.js"] },
+              { category: "Database", items: ["MySQL"] },
+              { category: "Tools & Others", items: ["Git", "Arduino", "Selenium", "Hugging Face"] },
             ].map((group) => (
               <div key={group.category} style={{ marginBottom: 10 }}>
                 <div style={{ fontFamily: "var(--font-system)", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>

@@ -4,10 +4,10 @@ import { useState } from "react";
 import WinWindow from "@/components/WinWindow";
 
 const contactMethods = [
-  { name: "Email",    icon: "📧", href: "https://mail.google.com/mail/?view=cm&fs=1&to=randidjaja7@gmail.com", desc: "randidjaja7@gmail.com", external: false },
-  { name: "WhatsApp", icon: "💬", href: "https://wa.me/6289678328080",                                          desc: "+62 896-7832-8080",     external: true  },
-  { name: "LinkedIn", icon: "🔗", href: "https://linkedin.com/in/randiandhikadjaja",                            desc: "randiandhikadjaja",     external: true  },
-  { name: "GitHub",   icon: "🐙", href: "https://github.com/CMGcool",                                           desc: "CMGcool",               external: true  },
+  { name: "Email",    icon: "/email-pixelated.png",                                           href: "https://mail.google.com/mail/?view=cm&fs=1&to=randidjaja7@gmail.com", desc: "randidjaja7@gmail.com", external: false },
+  { name: "WhatsApp", icon: "/wa-pixelated.png",                                           href: "https://wa.me/6289678328080",                                          desc: "+62 896-7832-8080",     external: true  },
+  { name: "LinkedIn", icon: "/linkedin_pixel_logo_icon_181925.webp",        href: "https://linkedin.com/in/randiandhikadjaja",                            desc: "randiandhikadjaja",     external: true  },
+  { name: "GitHub",   icon: "/github-pixelated.png",                        href: "https://github.com/CMGcool",                                           desc: "CMGcool",               external: true  },
 ];
 
 export default function Contact() {
@@ -49,7 +49,16 @@ export default function Contact() {
                   onMouseDown={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "var(--bevel-darkest) var(--bevel-light) var(--bevel-light) var(--bevel-darkest)"; }}
                   onMouseUp={(e) => { (e.currentTarget as HTMLElement).style.borderColor = ""; }}
                 >
-                  <span style={{ fontSize: 24, lineHeight: 1 }}>{m.icon}</span>
+                  {m.icon.startsWith("/") ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={m.icon}
+                      alt={m.name}
+                      style={{ width: 24, height: 24, objectFit: "contain", imageRendering: "pixelated" }}
+                    />
+                  ) : (
+                    <span style={{ fontSize: 24, lineHeight: 1 }}>{m.icon}</span>
+                  )}
                   <span style={{ fontFamily: "var(--font-system)", fontWeight: 700, fontSize: 12 }}>{m.name}</span>
                   <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--win-dark-gray)", wordBreak: "break-all" }}>{m.desc}</span>
                 </div>

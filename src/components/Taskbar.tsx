@@ -98,23 +98,27 @@ function TaskbarClock() {
 function StartMenu({
   onClose,
   restoreAll,
+  startBtnRef,
 }: {
   onClose: () => void;
   restoreAll: () => void;
+  startBtnRef: React.RefObject<HTMLButtonElement | null>;
 }) {
   const menuRef = useRef<HTMLDivElement>(null);
   const [hovered, setHovered] = useState<number | null>(null);
 
-  // Close on outside click
+  // Close on outside click — but ignore clicks on the Start button itself
+  // so the button's own onClick toggle can handle that case
   useEffect(() => {
     const handler = (e: MouseEvent) => {
+      if (startBtnRef.current?.contains(e.target as Node)) return;
       if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
         onClose();
       }
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
-  }, [onClose]);
+  }, [onClose, startBtnRef]);
 
   const handleItem = (item: (typeof START_MENU_ITEMS)[number]) => {
     if (item.action === "scroll") {
@@ -244,6 +248,7 @@ function StartMenu({
 export default function Taskbar() {
   const { allWindows, getState, restore, minimize } = useWindowManager();
   const [startOpen, setStartOpen] = useState(false);
+  const startBtnRef = useRef<HTMLButtonElement>(null);
 
   const restoreAll = () => {
     allWindows.forEach((w) => restore(w.id));
@@ -271,11 +276,13 @@ export default function Taskbar() {
         <StartMenu
           onClose={() => setStartOpen(false)}
           restoreAll={restoreAll}
+          startBtnRef={startBtnRef}
         />
       )}
 
       {/* ── Start Button ── */}
       <button
+        ref={startBtnRef}
         onClick={() => setStartOpen((o) => !o)}
         style={{
           fontFamily: "var(--font-system)",
@@ -296,7 +303,8 @@ export default function Taskbar() {
           cursor: "default",
         }}
       >
-        <span style={{ fontSize: 14 }}>💻</span>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/w2k_start.ico" alt="" style={{ width: 16, height: 16, imageRendering: "pixelated" }} />
         <span>Start</span>
       </button>
 
