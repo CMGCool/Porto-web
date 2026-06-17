@@ -8,7 +8,6 @@ type Props = {
   deletingSpeed?: number;
   delayBetween?: number;
   loop?: boolean;
-  className?: string;
 };
 
 export default function Typewriter({
@@ -17,7 +16,6 @@ export default function Typewriter({
   deletingSpeed = 40,
   delayBetween = 1200,
   loop = true,
-  className,
 }: Props) {
   const [wordIndex, setWordIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
@@ -32,10 +30,7 @@ export default function Typewriter({
     if (isComplete) delay = delayBetween;
 
     const t = setTimeout(() => {
-      if (isComplete) {
-        setDeleting(true);
-        return;
-      }
+      if (isComplete) { setDeleting(true); return; }
       if (isEmpty) {
         setDeleting(false);
         setWordIndex((i) => {
@@ -54,9 +49,9 @@ export default function Typewriter({
   const text = (words[wordIndex] ?? "").slice(0, subIndex);
 
   return (
-    <span className={className}>
+    <span style={{ fontFamily: "var(--font-mono)", fontSize: 12 }}>
       {text}
-      <span className="ml-1 inline-block w-[1px] h-5 align-middle bg-current animate-pulse" />
+      <span className="cursor-blink" />
     </span>
   );
 }

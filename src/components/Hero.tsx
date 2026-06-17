@@ -1,79 +1,131 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Typewriter from "@/components/Typewriter";
+import WinWindow from "@/components/WinWindow";
 
 const HERO_WORDS = [
-    "I'm a fresh graduate Computer Engineering from Universitas Pendidikan Indonesia.",
-    "I'm a fullstack developer.",
-    "I'm an AI enthusiast.",
-    "I'm a problem solver.",
+  "Fresh graduate in Computer Engineering — Universitas Pendidikan Indonesia.",
+  "Fullstack Developer.",
+  "AI Enthusiast.",
+  "Problem Solver.",
 ];
 
 export default function Hero() {
-    return (
-        <section className="relative flex flex-col items-center justify-center text-center min-h-[90vh] overflow-hidden">
-            <div className="pointer-events-none absolute -top-10 -left-10 h-64 w-64 rounded-full bg-indigo-500/20 blur-blob"></div>
-            <div className="pointer-events-none absolute top-20 -right-10 h-72 w-72 rounded-full bg-cyan-400/20 blur-blob" style={{ animationDelay: "2s" }}></div>
+  return (
+    <section
+      className="desktop-bg"
+      style={{ padding: "24px 16px 80px", minHeight: "calc(100vh - 64px)" }}
+    >
+      <div
+        style={{
+          maxWidth: 800,
+          margin: "0 auto",
+          display: "flex",
+          flexDirection: "column",
+          gap: 16,
+        }}
+      >
+        {/* ── Profile Window ── */}
+        <WinWindow id="profile" title="Profile — Randi Andhika Djaja" icon="👤">
+          {/* Menu bar */}
+          <div className="win-menubar">
+            <span className="win-menubar-item">File</span>
+            <span className="win-menubar-item">View</span>
+            <span className="win-menubar-item">Help</span>
+          </div>
 
-            <div className="group relative p-[2px] rounded-full bg-gradient-to-br from-indigo-400/60 via-cyan-400/40 to-transparent shadow-xl ring-1 ring-white/15 mb-6">
-                <div className="relative w-40 h-40 md:w-48 md:h-48 overflow-hidden rounded-full bg-white/5">
-                    <motion.img
-                        src="/pas-foto-edited.png"
-                        alt="Profile"
-                        className="w-full h-full object-cover"
-                        style={{ objectPosition: "center 60%" }}
-                        initial={{ opacity: 0, scale: 1.15 }}
-                        animate={{ opacity: 1, scale: 1.05 }}
-                        whileHover={{ scale: 1.12 }}
-                        whileTap={{ scale: 1.02 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                    />
-                </div>
+          <div className="win-body" style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+            {/* Photo */}
+            <div style={{ flexShrink: 0 }}>
+              <div className="win-viewport" style={{ width: 120, height: 140 }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/pas-foto-edited.png"
+                  alt="Randi Andhika Djaja"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "center 20%",
+                    display: "block",
+                  }}
+                />
+              </div>
             </div>
 
-            <motion.h2
-                className="text-4xl md:text-5xl font-extrabold tracking-tight"
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.15, duration: 0.6 }}
-            >
-                Hi, I’m <span className="bg-gradient-to-r from-indigo-300 via-cyan-200 to-indigo-400 bg-clip-text text-transparent">Randi Andhika Djaja</span>
-            </motion.h2>
+            {/* Info panel */}
+            <div style={{ flex: 1, minWidth: 200 }}>
+              <div className="win-section-label" style={{ marginBottom: 6 }}>
+                Randi Andhika Djaja
+              </div>
 
-            <motion.p
-                className="mt-4 text-indigo-100/80 max-w-md"
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.25, duration: 0.6 }}
-            >
-                <Typewriter
-                    words={HERO_WORDS}
-                    typingSpeed={55}
-                    deletingSpeed={35}
-                    delayBetween={1100}
-                />
-            </motion.p>
+              <div
+                className="bevel-in"
+                style={{ padding: "4px 8px", backgroundColor: "var(--win-white)", marginBottom: 8, minHeight: 28 }}
+              >
+                <Typewriter words={HERO_WORDS} typingSpeed={50} deletingSpeed={30} />
+              </div>
 
-            <motion.div
-                className="mt-8 flex flex-wrap items-center justify-center gap-3"
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.35, duration: 0.6 }}
-            >
-                <a href="https://drive.google.com/file/d/1WR4t4qiA_jpDP8Ro3_JTXEzUeLBGkbWl/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-500 text-white shadow-lg shadow-indigo-500/20 hover:brightness-110 transition flex items-center gap-2">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                    View CV
+              {[
+                ["Status",    "Open to Work"],
+                ["Location",  "Bandung, West Java, Indonesia"],
+                ["Education", "S1 Computer Engineering — UPI"],
+              ].map(([label, value]) => (
+                <div key={label} style={{ display: "flex", gap: 8, marginBottom: 3, fontSize: 12 }}>
+                  <span style={{ fontFamily: "var(--font-system)", fontWeight: 700, width: 80, flexShrink: 0 }}>
+                    {label}:
+                  </span>
+                  <span style={{ fontFamily: "var(--font-mono)" }}>{value}</span>
+                </div>
+              ))}
+
+              <hr className="win-separator" style={{ marginTop: 8 }} />
+
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 8 }}>
+                <a
+                  href="https://drive.google.com/file/d/1WR4t4qiA_jpDP8Ro3_JTXEzUeLBGkbWl/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="win-btn win-btn--primary"
+                >
+                  📄 View CV
                 </a>
-                <a href="#projects" className="px-5 py-2.5 rounded-full border border-white/15 text-indigo-100/90 hover:bg-white/5 transition">
-                    View Projects
-                </a>
-                <a href="#contact" className="px-5 py-2.5 rounded-full border border-white/15 text-indigo-100/90 hover:bg-white/5 transition">
-                    Contact
-                </a>
-            </motion.div>
-        </section>
-    );
+                <a href="#projects" className="win-btn">🗂 Projects</a>
+                <a href="#contact" className="win-btn">📧 Contact</a>
+              </div>
+            </div>
+          </div>
+
+          <div className="win-statusbar">
+            <span className="win-statusbar-item">Ready</span>
+            <span className="win-statusbar-item">📁 1 object selected</span>
+            <span style={{ marginLeft: "auto", fontFamily: "var(--font-mono)", fontSize: 11 }}>v1.0.0</span>
+          </div>
+        </WinWindow>
+
+        {/* ── Skills Window ── */}
+        <WinWindow id="skills" title="Skills &amp; Technologies" icon="🛠">
+          <div className="win-body">
+            {[
+              { category: "Frontend",      items: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Bootstrap", "Tailwind CSS"] },
+              { category: "Backend",       items: ["PHP", "CodeIgniter 3", "Python", "Flask", "Node.js"] },
+              { category: "Database",      items: ["MySQL", "PostgreSQL"] },
+              { category: "Tools & Others",items: ["Git", "Arduino", "Selenium", "Hugging Face", "Linux"] },
+            ].map((group) => (
+              <div key={group.category} style={{ marginBottom: 10 }}>
+                <div style={{ fontFamily: "var(--font-system)", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>
+                  {group.category}
+                </div>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
+                  {group.items.map((item) => (
+                    <span key={item} className="win-tag">{item}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </WinWindow>
+      </div>
+    </section>
+  );
 }

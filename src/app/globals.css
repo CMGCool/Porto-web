@@ -1,72 +1,364 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700;900&family=Courier+Prime:wght@400;700&display=swap');
 @import "tailwindcss";
 
+/* ============================================================
+   WIN95 / LEGACY DESKTOP DESIGN SYSTEM
+   ============================================================ */
+
 :root {
-  --background: #0b1020;
-  --foreground: #e8ecf4;
+  /* Core palette */
+  --win-teal:       #008080;
+  --win-silver:     #c0c0c0;
+  --win-navy:       #000080;
+  --win-black:      #000000;
+  --win-white:      #ffffff;
+  --win-gray:       #808080;
+  --win-yellow:     #ffff00;
+  --win-dark-gray:  #404040;
 
-  --brand-50: #eef2ff;
-  --brand-100: #e0e7ff;
-  --brand-200: #c7d2fe;
-  --brand-300: #a5b4fc;
-  --brand-400: #818cf8;
-  --brand-500: #6366f1;
-  --brand-600: #4f46e5;
-  --brand-700: #4338ca;
+  /* Bevel helpers */
+  --bevel-light:    #ffffff;
+  --bevel-dark:     #808080;
+  --bevel-darkest:  #000000;
 
-  --accent-500: #22d3ee;
-  --accent-600: #06b6d4;
+  /* Typography */
+  --font-system:    'Libre Franklin', 'Arial', sans-serif;
+  --font-mono:      'Courier Prime', 'Courier New', monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0b1020;
-    --foreground: #e8ecf4;
-  }
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
   scroll-behavior: smooth;
+  image-rendering: pixelated;
 }
 
 body {
-  background:
-    radial-gradient(1200px 600px at 10% -10%, rgba(99, 102, 241, 0.25), transparent 60%),
-    radial-gradient(900px 500px at 110% 10%, rgba(34, 211, 238, 0.2), transparent 50%),
-    linear-gradient(180deg, #0b1020 0%, #0b132b 100%);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system;
+  background-color: var(--win-teal);
+  color: var(--win-black);
+  font-family: var(--font-system);
+  font-size: 12px;
+  line-height: 16px;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
 }
 
-/* Cute, reusable animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0) }
-  50% { transform: translateY(-8px) }
-}
-@keyframes blob {
-  0%, 100% { transform: translate(0, 0) scale(1) }
-  33% { transform: translate(8px, -6px) scale(1.03) }
-  66% { transform: translate(-6px, 6px) scale(0.98) }
-}
-@keyframes fadeUp {
-  0% { opacity: 0; transform: translateY(12px) }
-  100% { opacity: 1; transform: translateY(0) }
+/* ---- SCANLINE OVERLAY ---- */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 1px,
+    rgba(0, 0, 0, 0.06) 1px,
+    rgba(0, 0, 0, 0.06) 2px
+  );
 }
 
-.blur-blob {
-  filter: blur(40px);
-  opacity: 0.55;
-  animation: blob 12s ease-in-out infinite;
+/* ============================================================
+   BEVEL UTILITIES
+   ============================================================ */
+
+/* Raised (outset) — buttons, panels */
+.bevel-out {
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--bevel-light) var(--bevel-darkest) var(--bevel-darkest) var(--bevel-light);
+  outline: 1px solid var(--bevel-dark);
+  outline-offset: -2px;
 }
-.floaty {
-  animation: float 6s ease-in-out infinite;
+
+/* Sunken (inset) — inputs, viewports */
+.bevel-in {
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--bevel-dark) var(--bevel-light) var(--bevel-light) var(--bevel-dark);
+  outline: 1px solid var(--bevel-darkest);
+  outline-offset: -2px;
 }
-.reveal-up {
-  animation: fadeUp 700ms ease 120ms both;
+
+/* Window chrome frame */
+.win-frame {
+  background-color: var(--win-silver);
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--bevel-light) var(--bevel-darkest) var(--bevel-darkest) var(--bevel-light);
+}
+
+/* Window title bar */
+.win-titlebar {
+  background: linear-gradient(to right, var(--win-navy), #1084d0);
+  color: var(--win-white);
+  font-family: var(--font-system);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+  letter-spacing: 0.5px;
+}
+
+/* Title bar close button */
+.win-close-btn {
+  background: var(--win-silver);
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--bevel-light) var(--bevel-darkest) var(--bevel-darkest) var(--bevel-light);
+  width: 16px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 900;
+  color: var(--win-black);
+  cursor: default;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.win-close-btn:active {
+  border-color: var(--bevel-darkest) var(--bevel-light) var(--bevel-light) var(--bevel-darkest);
+}
+
+/* Window body */
+.win-body {
+  background-color: var(--win-silver);
+  padding: 8px;
+}
+
+/* ---- COMMAND BUTTON ---- */
+.win-btn {
+  background-color: var(--win-silver);
+  font-family: var(--font-system);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--win-black);
+  padding: 4px 12px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--bevel-light) var(--bevel-darkest) var(--bevel-darkest) var(--bevel-light);
+  cursor: default;
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  outline: 1px solid var(--bevel-dark);
+  outline-offset: -2px;
+  min-width: 75px;
+  justify-content: center;
+  -webkit-font-smoothing: none;
+}
+
+.win-btn:hover {
+  background-color: #d0d0d0;
+}
+
+.win-btn:active,
+.win-btn--active {
+  border-color: var(--bevel-darkest) var(--bevel-light) var(--bevel-light) var(--bevel-darkest);
+  padding-top: 5px;
+  padding-left: 13px;
+}
+
+.win-btn--primary {
+  outline: 2px solid var(--win-black);
+  outline-offset: -3px;
+}
+
+/* ---- INPUT FIELD ---- */
+.win-input {
+  background-color: var(--win-white);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--win-black);
+  padding: 3px 4px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--bevel-dark) var(--bevel-light) var(--bevel-light) var(--bevel-dark);
+  outline: 1px solid var(--bevel-darkest);
+  outline-offset: -2px;
+  width: 100%;
+  -webkit-font-smoothing: none;
+}
+
+.win-input:focus {
+  outline: 1px solid var(--bevel-darkest);
+  outline-offset: -2px;
+}
+
+/* ---- STATUS BAR ---- */
+.win-statusbar {
+  background-color: var(--win-silver);
+  border-top: 2px solid var(--bevel-dark);
+  padding: 2px 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--win-black);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.win-statusbar-item {
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--bevel-dark) var(--bevel-light) var(--bevel-light) var(--bevel-dark);
+  padding: 1px 6px;
+}
+
+/* ---- SEPARATOR ---- */
+.win-separator {
+  border: none;
+  border-top: 1px solid var(--bevel-dark);
+  border-bottom: 1px solid var(--bevel-light);
+  margin: 4px 0;
+}
+
+/* ---- SCROLLBAR (webkit) ---- */
+::-webkit-scrollbar { width: 16px; height: 16px; }
+::-webkit-scrollbar-track { background: var(--win-silver); }
+::-webkit-scrollbar-thumb {
+  background: var(--win-silver);
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--bevel-light) var(--bevel-darkest) var(--bevel-darkest) var(--bevel-light);
+}
+::-webkit-scrollbar-button {
+  background: var(--win-silver);
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--bevel-light) var(--bevel-darkest) var(--bevel-darkest) var(--bevel-light);
+  height: 16px; width: 16px;
+}
+::-webkit-scrollbar-corner { background: var(--win-silver); }
+
+/* ---- TECH TAG ---- */
+.win-tag {
+  background-color: var(--win-silver);
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--bevel-dark) var(--bevel-light) var(--bevel-light) var(--bevel-dark);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--win-black);
+  padding: 1px 4px;
+  white-space: nowrap;
+}
+
+/* ---- SECTION LABEL ---- */
+.win-section-label {
+  font-family: var(--font-system);
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  color: var(--win-black);
+}
+
+/* ---- PROGRESS / TIMELINE dot ---- */
+.win-timeline-dot {
+  width: 10px;
+  height: 10px;
+  background: var(--win-navy);
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--bevel-light) var(--bevel-darkest) var(--bevel-darkest) var(--bevel-light);
+  flex-shrink: 0;
+}
+
+/* ---- ICON pixel-style ---- */
+.win-icon {
+  image-rendering: pixelated;
+}
+
+/* ---- DESKTOP PATTERN (subtle grid) ---- */
+.desktop-bg {
+  background-color: var(--win-teal);
+  background-image:
+    linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+/* Cursor blink for typewriter */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  display: inline-block;
+  width: 8px;
+  height: 14px;
+  background: var(--win-black);
+  animation: blink 1s step-end infinite;
+  vertical-align: text-bottom;
+  margin-left: 1px;
+}
+
+/* ---- NAVBAR TASKBAR ---- */
+.win-taskbar {
+  background-color: var(--win-silver);
+  border-top: 2px solid var(--bevel-light);
+  border-bottom: 2px solid var(--bevel-dark);
+  height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 4px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+/* ---- IMAGE VIEWPORT (inset frame) ---- */
+.win-viewport {
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--bevel-dark) var(--bevel-light) var(--bevel-light) var(--bevel-dark);
+  outline: 1px solid var(--bevel-darkest);
+  outline-offset: -2px;
+  overflow: hidden;
+}
+
+/* ---- MENU BAR ---- */
+.win-menubar {
+  background-color: var(--win-silver);
+  border-bottom: 1px solid var(--bevel-dark);
+  padding: 2px 4px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-family: var(--font-system);
+  font-size: 12px;
+}
+
+.win-menubar-item {
+  padding: 2px 6px;
+  cursor: default;
+  color: var(--win-black);
+}
+
+.win-menubar-item:hover {
+  background-color: var(--win-navy);
+  color: var(--win-white);
+}
+
+/* Focus ring for accessibility */
+.win-btn:focus-visible {
+  outline: 1px dotted var(--win-black);
+  outline-offset: -4px;
 }
