@@ -36,7 +36,7 @@ export default function Contact() {
       <div style={{ maxWidth: 800, margin: "0 auto", display: "flex", flexDirection: "column", gap: 12 }}>
 
         {/* Contact methods */}
-        <WinWindow id="contact-info" title="Contact Information" icon="📡">
+        <WinWindow id="contact-info" title="Contact Information" icon="">
           <div
             className="win-body"
             style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))", gap: 8 }}
@@ -59,7 +59,7 @@ export default function Contact() {
         </WinWindow>
 
         {/* Contact form */}
-        <WinWindow id="contact-form" title="Send a Message" icon="✉">
+        <WinWindow id="contact-form" title="Send a Message" icon="">
           <div className="win-body">
             <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
@@ -86,8 +86,8 @@ export default function Contact() {
               <hr className="win-separator" />
 
               <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
-                <button type="submit" className="win-btn win-btn--primary">📤 Send Message</button>
-                <button type="button" className="win-btn" onClick={() => setFormData({ name: "", email: "", subject: "", message: "" })}>🗑 Clear</button>
+                <button type="submit" className="win-btn win-btn--primary"> Send Message</button>
+                <button type="button" className="win-btn" onClick={() => setFormData({ name: "", email: "", subject: "", message: "" })}> Clear</button>
 
                 {submitted === "success" && (
                   <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "#005000", padding: "2px 6px", border: "1px solid #005000", backgroundColor: "#e0ffe0" }}>

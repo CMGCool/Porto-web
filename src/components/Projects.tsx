@@ -70,7 +70,7 @@ export default function Projects() {
   return (
     <section id="projects" className="desktop-bg" style={{ padding: "24px 16px" }}>
       <div style={{ maxWidth: 900, margin: "0 auto" }}>
-        <WinWindow id="projects-win" title="Projects" icon="🗂">
+        <WinWindow id="projects-win" title="Projects" icon="">
           {/* Toolbar */}
           <div
             style={{
@@ -116,7 +116,7 @@ export default function Projects() {
               return (
                 <div key={project.title} className="win-frame" style={{ margin: 0 }}>
                   <div className="win-titlebar" style={{ fontSize: 11 }}>
-                    <span>📄 {project.title}</span>
+                    <span> {project.title}</span>
                   </div>
 
                   <div style={{ position: "relative" }}>
@@ -178,7 +178,7 @@ export default function Projects() {
                         <hr className="win-separator" />
                         <div style={{ marginTop: 6 }}>
                           <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="win-btn" style={{ textDecoration: "none" }}>
-                            🐙 View on GitHub
+                             View on GitHub
                           </a>
                         </div>
                       </>

@@ -31,7 +31,7 @@ export default function Experiences() {
   return (
     <section id="experience" className="desktop-bg" style={{ padding: "24px 16px" }}>
       <div style={{ maxWidth: 800, margin: "0 auto" }}>
-        <WinWindow id="experience-win" title="Work Experience" icon="💼">
+        <WinWindow id="experience-win" title="Work Experience" icon="">
           <div className="win-body" style={{ padding: 12 }}>
             {experiences.map((exp, i) => (
               <div key={exp.role} style={{ marginBottom: i < experiences.length - 1 ? 16 : 0 }}>

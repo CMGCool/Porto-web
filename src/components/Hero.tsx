@@ -26,7 +26,7 @@ export default function Hero() {
         }}
       >
         {/* ── Profile Window ── */}
-        <WinWindow id="profile" title="Profile — Randi Andhika Djaja" icon="👤">
+        <WinWindow id="profile" title="Profile — Randi Andhika Djaja" icon="">
           {/* Menu bar */}
           <div className="win-menubar">
             <span className="win-menubar-item">File</span>
@@ -88,23 +88,23 @@ export default function Hero() {
                   rel="noopener noreferrer"
                   className="win-btn win-btn--primary"
                 >
-                  📄 View CV
+                   View CV
                 </a>
-                <a href="#projects" className="win-btn">🗂 Projects</a>
-                <a href="#contact" className="win-btn">📧 Contact</a>
+                <a href="#projects" className="win-btn"> Projects</a>
+                <a href="#contact" className="win-btn"> Contact</a>
               </div>
             </div>
           </div>
 
           <div className="win-statusbar">
             <span className="win-statusbar-item">Ready</span>
-            <span className="win-statusbar-item">📁 1 object selected</span>
+            <span className="win-statusbar-item"> 1 object selected</span>
             <span style={{ marginLeft: "auto", fontFamily: "var(--font-mono)", fontSize: 11 }}>v1.0.0</span>
           </div>
         </WinWindow>
 
         {/* ── Skills Window ── */}
-        <WinWindow id="skills" title="Skills &amp; Technologies" icon="🛠">
+        <WinWindow id="skills" title="Skills &amp; Technologies" icon="">
           <div className="win-body">
             {[
               { category: "Frontend",      items: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Bootstrap", "Tailwind CSS"] },
