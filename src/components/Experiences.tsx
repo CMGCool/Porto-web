@@ -4,6 +4,18 @@ import WinWindow from "@/components/WinWindow";
 
 const experiences = [
   {
+    role: "Data Analyst and IT — MagangHub Batch 3",
+    company: "Balai Besar Standardisasi dan Pelayanan Jasa Industri Bahan dan Barang Teknik (BBSPJIBBT)",
+    period: "December 2025 — June 2026",
+    points: [
+      "Designed and developed RESTful APIs by translating complex business processes across nine institutional technical services into secure and scalable backend solutions, enabling an efficient multi-stage service registration workflow.",
+      "Collaborated closely with service stakeholders through regular requirement-gathering sessions to analyze business needs and ensure the implemented technical solutions aligned with organizational objectives.",
+      "Integrated the BNI eCollection Payment Gateway, implementing both Open Billing and Closed Billing workflows, along with an inquiry synchronization mechanism to validate transaction statuses in real time.",
+      "Integrated backend APIs with a Next.js frontend application and implemented a real-time polling mechanism to provide users with responsive payment status updates.",
+      "Conducted end-to-end API testing using Postman to ensure system reliability and functionality, while producing comprehensive technical documentation to improve long-term maintainability and support future development.",
+    ],
+  },
+  {
     role: "IT Staff Internship — Kampus Merdeka Batch 7",
     company: "PT Jasa dan Kepariwisataan Jawa Barat (Perseroda)",
     period: "September 2024 — December 2024",

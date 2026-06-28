@@ -47,7 +47,7 @@ const START_MENU_ITEMS = [
     label: "View CV",
     action: "link",
     target:
-      "https://drive.google.com/file/d/1WR4t4qiA_jpDP8Ro3_JTXEzUeLBGkbWl/view?usp=sharing",
+      "https://drive.google.com/file/d/1VrjQZsvPVH9dPrJCGvVynekkunWdpVpB/view?usp=sharing",
   },
   {
     group: null,

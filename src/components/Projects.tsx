@@ -5,6 +5,12 @@ import WinWindow from "@/components/WinWindow";
 
 const projects = [
   {
+    title: "Re-SIGAP",
+    desc: "Re-SIGAP (Integrated Service Information System) is a digital platform developed to streamline and integrate the registration process for various technical services at B4T. In this project, I worked as a Backend Developer, responsible for designing and developing RESTful APIs, translating business requirements into scalable backend solutions, integrating the BNI eCollection Payment Gateway, and connecting backend services with a Next.js frontend application. I also performed end-to-end API testing using Postman and prepared technical documentation to ensure the system remained stable, well-documented, and maintainable for future development.",
+    images: ["/login.png", "/signup.png", "/main.png", "/step1.png", "/step2.png", "/step3.png", "/summary_page.png", "/detail_permohonan_saya.png", "/payment.png", "/admin.png"],
+    technologies: ["Laravel", "Next.js", "MySQL", "Tailwind CSS", "Docker", "Postman", "Google OAuth", "BNI eCollection (Payment Gateway)"]
+  },
+  {
     title: "LunchPolicy.ID",
     desc: "A web-based sentiment analysis platform monitoring public responses to the Indonesian government's free lunch policy. Works in real-time using a BERT deep learning model to analyze opinions from social media and presents results in interactive visualizations.",
     images: ["/LunchPolicy.png", "/Dashboard.png", "/Scraping Setup.png", "/Arsitektur Sistem.png"],
@@ -178,7 +184,7 @@ export default function Projects() {
                         <hr className="win-separator" />
                         <div style={{ marginTop: 6 }}>
                           <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="win-btn" style={{ textDecoration: "none" }}>
-                             View on GitHub
+                            View on GitHub
                           </a>
                         </div>
                       </>

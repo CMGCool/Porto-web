@@ -85,7 +85,7 @@ export default function Hero() {
 
               <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 8 }}>
                 <a
-                  href="https://drive.google.com/file/d/1WR4t4qiA_jpDP8Ro3_JTXEzUeLBGkbWl/view?usp=sharing"
+                  href="https://drive.google.com/file/d/1VrjQZsvPVH9dPrJCGvVynekkunWdpVpB/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="win-btn win-btn--primary"
@@ -109,10 +109,10 @@ export default function Hero() {
         <WinWindow id="skills" title="Skills &amp; Technologies" icon="">
           <div className="win-body">
             {[
-              { category: "Frontend", items: ["HTML", "CSS", "JavaScript", "Next.js", "Bootstrap", "Tailwind CSS"] },
-              { category: "Backend", items: ["CodeIgniter", "Laravel", "Flask", "Node.js"] },
+              { category: "Frontend", items: ["HTML", "CSS", "JavaScript", "TypeScript", "Next.js", "Bootstrap", "Tailwind CSS"] },
+              { category: "Backend", items: ["PHP", "Python", "CodeIgniter", "Laravel", "Flask", "Rest API"] },
               { category: "Database", items: ["MySQL"] },
-              { category: "Tools & Others", items: ["Git", "Arduino", "Selenium", "Hugging Face"] },
+              { category: "Tools & Others", items: ["Git", "Docker", "Postman", "GoogleOAuth", "Google Collab", "MikroTik", "Figma", "Arduino", "Selenium", "Hugging Face"] },
             ].map((group) => (
               <div key={group.category} style={{ marginBottom: 10 }}>
                 <div style={{ fontFamily: "var(--font-system)", fontWeight: 700, fontSize: 12, marginBottom: 4 }}>

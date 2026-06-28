@@ -7,7 +7,7 @@ const navItems = [
   { href: "#experience", label: "Experiences" },
   { href: "#certificates", label: "Certificates" },
   { href: "#contact", label: "Contact" },
-  { href: "https://drive.google.com/file/d/1WR4t4qiA_jpDP8Ro3_JTXEzUeLBGkbWl/view?usp=sharing", label: "View CV", external: true },
+  { href: "https://drive.google.com/file/d/1VrjQZsvPVH9dPrJCGvVynekkunWdpVpB/view?usp=sharing", label: "View CV", external: true },
 ];
 
 export default function Navbar() {
