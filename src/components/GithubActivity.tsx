@@ -144,13 +144,6 @@ export default function GithubActivity() {
     <section id="github-activity" className="desktop-bg" style={{ padding: "16px 16px 24px" }}>
       <div style={{ maxWidth: 900, margin: "0 auto" }}>
         <WinWindow id="github-win" title="GitHub Activity — CMGCool" icon="github">
-          {/* Menu bar */}
-          <div className="win-menubar">
-            <span className="win-menubar-item">File</span>
-            <span className="win-menubar-item">View</span>
-            <span className="win-menubar-item">Remote</span>
-            <span className="win-menubar-item">Help</span>
-          </div>
 
           <div className="win-body" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             {/* Header profile & summary bar */}
