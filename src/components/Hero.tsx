@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Typewriter from "@/components/Typewriter";
 import WinWindow from "@/components/WinWindow";
 
@@ -26,7 +27,7 @@ export default function Hero() {
         }}
       >
         {/* ── Profile Window ── */}
-        <WinWindow id="profile" title="Profile — Randi Andhika Djaja" icon="">
+        <WinWindow id="profile" title="Profile — Randi Andhika Djaja" icon="profile">
           {/* Menu bar */}
           <div className="win-menubar">
             <span className="win-menubar-item">File</span>
@@ -37,11 +38,13 @@ export default function Hero() {
           <div className="win-body" style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
             {/* Photo */}
             <div style={{ flexShrink: 0 }}>
-              <div className="win-viewport" style={{ width: 120, height: 140 }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/pas-foto-edited.png"
+              <div className="win-viewport" style={{ width: 120, height: 140, position: "relative", overflow: "hidden" }}>
+                <Image
+                  src="/pas-foto-optimized.webp"
                   alt="Randi Andhika Djaja"
+                  width={360}
+                  height={540}
+                  priority
                   style={{
                     width: "100%",
                     height: "100%",
@@ -106,7 +109,7 @@ export default function Hero() {
         </WinWindow>
 
         {/* ── Skills Window ── */}
-        <WinWindow id="skills" title="Skills &amp; Technologies" icon="">
+        <WinWindow id="skills" title="Skills &amp; Technologies" icon="skills">
           <div className="win-body">
             {[
               { category: "Frontend", items: ["HTML", "CSS", "JavaScript", "TypeScript", "Next.js", "Bootstrap", "Tailwind CSS"] },

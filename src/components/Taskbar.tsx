@@ -2,40 +2,49 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useWindowManager } from "@/components/WindowManager";
+import PixelIcon, { PixelIconName } from "@/components/PixelIcon";
+
+const isKnownPixelIcon = (ic: string): ic is PixelIconName => {
+  return [
+    "profile", "skills", "projects", "experience", "certificates",
+    "contact", "cv", "github", "restore", "computer", "shutdown",
+    "warning", "status-online"
+  ].includes(ic);
+};
 
 // ── Start Menu items ──────────────────────────────────────────
 const START_MENU_ITEMS = [
   {
     group: null,
-    icon: "👤",
+    icon: "profile",
     label: "Profile",
     action: "scroll",
     target: "profile",
   },
   {
     group: null,
-    icon: "🗂",
+    icon: "projects",
     label: "Projects",
     action: "scroll",
     target: "projects",
   },
   {
     group: null,
-    icon: "💼",
+    icon: "experience",
     label: "Work Experience",
     action: "scroll",
     target: "experience",
   },
   {
     group: null,
-    icon: "🏆",
+    icon: "certificates",
     label: "Certificates",
     action: "scroll",
     target: "certificates",
   },
   {
     group: null,
-    icon: "📡",
+    icon: "contact",
     label: "Contact",
     action: "scroll",
     target: "contact",
@@ -43,7 +52,7 @@ const START_MENU_ITEMS = [
   { group: "divider", icon: "", label: "", action: "", target: "" },
   {
     group: null,
-    icon: "📄",
+    icon: "cv",
     label: "View CV",
     action: "link",
     target:
@@ -51,7 +60,7 @@ const START_MENU_ITEMS = [
   },
   {
     group: null,
-    icon: "🐙",
+    icon: "github",
     label: "GitHub",
     action: "link",
     target: "https://github.com/CMGcool",
@@ -59,7 +68,7 @@ const START_MENU_ITEMS = [
   { group: "divider", icon: "", label: "", action: "", target: "" },
   {
     group: null,
-    icon: "🔄",
+    icon: "restore",
     label: "Restore All Windows",
     action: "restore-all",
     target: "",
@@ -223,8 +232,12 @@ function StartMenu({
                 userSelect: "none",
               }}
             >
-              <span style={{ fontSize: 18, flexShrink: 0, width: 24, textAlign: "center" }}>
-                {item.icon}
+              <span style={{ flexShrink: 0, width: 24, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                {isKnownPixelIcon(item.icon) ? (
+                  <PixelIcon name={item.icon} size={18} />
+                ) : (
+                  <span style={{ fontSize: 18 }}>{item.icon}</span>
+                )}
               </span>
               <span
                 style={{
@@ -368,7 +381,13 @@ export default function Taskbar() {
                 flexShrink: 0,
               }}
             >
-              <span style={{ flexShrink: 0 }}>{win.icon}</span>
+              <span style={{ flexShrink: 0, display: "inline-flex", alignItems: "center" }}>
+                {isKnownPixelIcon(win.icon) ? (
+                  <PixelIcon name={win.icon} size={14} />
+                ) : (
+                  <span>{win.icon}</span>
+                )}
+              </span>
               <span
                 style={{
                   overflow: "hidden",

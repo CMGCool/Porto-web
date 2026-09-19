@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import PixelIcon from "@/components/PixelIcon";
 
 const navItems = [
   { href: "#projects", label: "Projects" },
@@ -41,7 +42,7 @@ export default function Navbar() {
             letterSpacing: "0.5px",
           }}
         >
-          <img src="/w98_computer.ico" alt="" style={{ width: 16, height: 16, imageRendering: "pixelated" }} />
+          <PixelIcon name="computer" size={16} />
           <span>Randi Andhika Djaja — Portfolio v1.0</span>
           <div style={{ marginLeft: "auto", display: "flex", gap: 2 }}>
             <button className="win-close-btn" aria-label="minimize">_</button>

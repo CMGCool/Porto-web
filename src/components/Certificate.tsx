@@ -1,6 +1,7 @@
 "use client";
 
 import WinWindow from "@/components/WinWindow";
+import PixelIcon from "@/components/PixelIcon";
 
 const certificates = [
   {
@@ -30,7 +31,7 @@ export default function Certificate() {
   return (
     <section id="certificates" className="desktop-bg" style={{ padding: "24px 16px" }}>
       <div style={{ maxWidth: 800, margin: "0 auto" }}>
-        <WinWindow id="certificates-win" title="Certificates" icon="">
+        <WinWindow id="certificates-win" title="Certificates" icon="certificates">
           <div
             className="win-body"
             style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: 10 }}
@@ -38,7 +39,10 @@ export default function Certificate() {
             {certificates.map((cert) => (
               <div key={cert.title} className="win-frame" style={{ margin: 0 }}>
                 <div className="win-titlebar" style={{ fontSize: 11 }}>
-                  <span> Certificate</span>
+                  <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                    <PixelIcon name="certificates" size={12} />
+                    Certificate
+                  </span>
                 </div>
 
                 <div className="win-body" style={{ padding: 8 }}>

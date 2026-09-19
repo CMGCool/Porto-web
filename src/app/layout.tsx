@@ -1,6 +1,21 @@
 import type { Metadata } from "next";
+import { Libre_Franklin, Courier_Prime } from "next/font/google";
 import "./globals.css";
 import ScrollToTop from "@/components/ScrollToTop";
+
+const libreFranklin = Libre_Franklin({
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
+  variable: "--font-system-var",
+  display: "swap",
+});
+
+const courierPrime = Courier_Prime({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-mono-var",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Randi — Web Developer Portfolio",
@@ -18,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${libreFranklin.variable} ${courierPrime.variable}`}>
       <body>
         {children}
         <ScrollToTop />

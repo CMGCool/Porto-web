@@ -2,16 +2,25 @@
 
 import { useEffect, useRef, ReactNode } from "react";
 import { useWindowManager } from "@/components/WindowManager";
+import PixelIcon, { PixelIconName } from "@/components/PixelIcon";
 
 type Props = {
   id: string;
   title: string;
-  icon: string;
+  icon?: string;
   children: ReactNode;
   style?: React.CSSProperties;
 };
 
-export default function WinWindow({ id, title, icon, children, style }: Props) {
+const isKnownPixelIcon = (ic: string): ic is PixelIconName => {
+  return [
+    "profile", "skills", "projects", "experience", "certificates",
+    "contact", "cv", "github", "restore", "computer", "shutdown",
+    "warning", "status-online"
+  ].includes(ic);
+};
+
+export default function WinWindow({ id, title, icon = "", children, style }: Props) {
   const { register, minimize, close, restore, getState } = useWindowManager();
   const registered = useRef(false);
 
@@ -24,6 +33,14 @@ export default function WinWindow({ id, title, icon, children, style }: Props) {
 
   const state = getState(id);
 
+  const renderIcon = (size = 14) => {
+    if (!icon) return null;
+    if (isKnownPixelIcon(icon)) {
+      return <PixelIcon name={icon} size={size} style={{ marginRight: 6 }} />;
+    }
+    return <span style={{ marginRight: 6 }}>{icon}</span>;
+  };
+
   // Closed → fully hidden, takes no space
   if (state === "closed") return null;
 
@@ -32,7 +49,10 @@ export default function WinWindow({ id, title, icon, children, style }: Props) {
     return (
       <div id={id} className="win-frame" style={{ ...style, overflow: "hidden" }}>
         <div className="win-titlebar" style={{ opacity: 0.75 }}>
-          <span style={{ fontStyle: "italic" }}>{icon} {title} — (minimized)</span>
+          <span style={{ fontStyle: "italic", display: "flex", alignItems: "center" }}>
+            {renderIcon(13)}
+            {title} — (minimized)
+          </span>
           <div style={{ display: "flex", gap: 2 }}>
             <button
               className="win-close-btn"
@@ -52,7 +72,10 @@ export default function WinWindow({ id, title, icon, children, style }: Props) {
   return (
     <div id={id} className="win-frame" style={style}>
       <div className="win-titlebar">
-        <span>{icon} {title}</span>
+        <span style={{ display: "flex", alignItems: "center" }}>
+          {renderIcon(14)}
+          {title}
+        </span>
         <div style={{ display: "flex", gap: 2 }}>
           <button
             className="win-close-btn"

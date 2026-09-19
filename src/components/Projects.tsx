@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import WinWindow from "@/components/WinWindow";
+import PixelIcon from "@/components/PixelIcon";
 
 const projects = [
   {
@@ -76,7 +77,7 @@ export default function Projects() {
   return (
     <section id="projects" className="desktop-bg" style={{ padding: "24px 16px" }}>
       <div style={{ maxWidth: 900, margin: "0 auto" }}>
-        <WinWindow id="projects-win" title="Projects" icon="">
+        <WinWindow id="projects-win" title="Projects" icon="projects">
           {/* Toolbar */}
           <div
             style={{
@@ -122,7 +123,10 @@ export default function Projects() {
               return (
                 <div key={project.title} className="win-frame" style={{ margin: 0 }}>
                   <div className="win-titlebar" style={{ fontSize: 11 }}>
-                    <span> {project.title}</span>
+                    <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                      <PixelIcon name="projects" size={13} />
+                      {project.title}
+                    </span>
                   </div>
 
                   <div style={{ position: "relative" }}>

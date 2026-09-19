@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import PixelIcon from "@/components/PixelIcon";
 
 // ── Shutdown confirmation dialog ──────────────────────────────
 function ShutdownDialog({ onConfirm, onCancel }: { onConfirm: () => void; onCancel: () => void }) {
@@ -21,7 +22,10 @@ function ShutdownDialog({ onConfirm, onCancel }: { onConfirm: () => void; onCanc
         {/* Dialog box */}
         <div className="win-frame" style={{ width: 320 }}>
           <div className="win-titlebar">
-            <span>⚠ Shut Down Windows</span>
+            <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
+              <PixelIcon name="warning" size={14} />
+              Shut Down Windows
+            </span>
             <button className="win-close-btn" onClick={onCancel} aria-label="close">✕</button>
           </div>
 
@@ -29,7 +33,9 @@ function ShutdownDialog({ onConfirm, onCancel }: { onConfirm: () => void; onCanc
             {/* Icon + text row */}
             <div style={{ display: "flex", gap: 12, alignItems: "flex-start", marginBottom: 16 }}>
               {/* Pixel monitor icon */}
-              <div style={{ flexShrink: 0, fontSize: 32, lineHeight: 1 }}>🖥️</div>
+              <div style={{ flexShrink: 0, display: "flex", alignItems: "center" }}>
+                <PixelIcon name="computer" size={36} />
+              </div>
               <div>
                 <div style={{ fontFamily: "var(--font-system)", fontSize: 12, fontWeight: 700, marginBottom: 6 }}>
                   What do you want the computer to do?
@@ -171,7 +177,10 @@ export default function Footer() {
           {/* ── About This PC window ── */}
           <div className="win-frame">
             <div className="win-titlebar">
-              <span> About This PC</span>
+              <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                <PixelIcon name="computer" size={14} />
+                About This PC
+              </span>
               <div style={{ display: "flex", gap: 2 }}>
                 <button className="win-close-btn" aria-label="close">✕</button>
               </div>
@@ -188,7 +197,9 @@ export default function Footer() {
                   gap: 4,
                 }}
               >
-                <div style={{ fontSize: 56, lineHeight: 1, imageRendering: "pixelated" }}>🖥️</div>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <PixelIcon name="computer" size={56} />
+                </div>
                 <div
                   style={{
                     fontFamily: "var(--font-mono)",
@@ -286,7 +297,10 @@ export default function Footer() {
             <div className="win-statusbar" style={{ justifyContent: "space-between" }}>
               <span className="win-statusbar-item">© {year} Randi Andhika Djaja</span>
               <span className="win-statusbar-item">Built with Next.js + Tailwind CSS</span>
-              <span className="win-statusbar-item">🟢 Online</span>
+              <span className="win-statusbar-item" style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
+                <PixelIcon name="status-online" size={8} />
+                Online
+              </span>
             </div>
           </div>
 
