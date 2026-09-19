@@ -30,6 +30,13 @@ const START_MENU_ITEMS = [
   },
   {
     group: null,
+    icon: "github",
+    label: "GitHub Activity",
+    action: "scroll",
+    target: "github-activity",
+  },
+  {
+    group: null,
     icon: "experience",
     label: "Work Experience",
     action: "scroll",

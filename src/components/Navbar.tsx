@@ -5,6 +5,7 @@ import PixelIcon from "@/components/PixelIcon";
 
 const navItems = [
   { href: "#projects", label: "Projects" },
+  { href: "#github-activity", label: "Activity" },
   { href: "#experience", label: "Experiences" },
   { href: "#certificates", label: "Certificates" },
   { href: "#contact", label: "Contact" },
